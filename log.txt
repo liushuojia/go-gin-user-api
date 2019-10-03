@@ -1,0 +1,19 @@
+    /*
+    body,_ := ioutil.ReadAll(c.Request.Body)
+    fmt.Println("---body/--- \r\n "+string(body))
+
+    if err := json.Unmarshal( []byte(string(body)), &user); err != nil {
+        c.JSON(http.StatusBadRequest, gin.H{
+            "code":     -1,
+            "message":  err.Error(),
+        })
+        return
+    }
+    fmt.Println(user)
+
+    /*
+    fmt.Println("---header/--- \r\n")
+    for k,v :=range c.Request.Header {
+        fmt.Println(k,v)
+    }
+     */

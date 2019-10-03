@@ -1,0 +1,32 @@
+
+
+POST 创建
+    body 传递JSON
+
+PUT 更新
+    body 传递JSON
+
+GET 获取单条记录
+    无参数
+
+GET 查询记录
+    URL传递参数  GET方法
+
+DELETE 删除数据
+    无参数
+
+
+
+上传文件
+
+
+curl测试数据
+curl -v -X POST \
+  http://127.0.0.1:8080/user \
+  -H 'content-type: application/json' \
+  -d '{"username": "刘硕嘉001","email": "49650719@qq.com","mobile": "13725588389","status": 1,"verify": ""}'
+
+
+
+
+
