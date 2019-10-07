@@ -1,7 +1,7 @@
 package conf
 
 import (
-	"fmt"
+	"flag"
 	"github.com/Unknwon/goconfig"
 	"path/filepath"
 )
@@ -14,12 +14,23 @@ var ConfigAdminRedis map[string] string
 var ConfigSmsRedis map[string] string
 var ConfigEmailRedis map[string] string
 
+var (
+	confFile = flag.String("c", "", "set configuration `file`")
+)
+
 func init() {
+
 	var err error
-	dir, _ := filepath.Abs(`.`)
-	configFile, err = goconfig.LoadConfigFile( dir + "/app.conf" )
+	flag.Parse()
+	if *confFile == "" {
+		dir, _ := filepath.Abs(`.`)
+		*confFile =  dir + "/app.conf"
+	}
+
+	configFile, err = goconfig.LoadConfigFile( *confFile )
+
 	if err != nil{
-		fmt.Println("读取配置文件出现错误")
+		panic("读取配置文件出现错误")
 		return
 	}
 

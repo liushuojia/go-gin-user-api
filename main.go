@@ -1,15 +1,15 @@
 package main
 
 import (
+	. "user/conf"
 	_ "user/conf"
 	_ "user/database"
-	"user/router"
 	orm "user/database"
-	. "user/conf"
+	"user/router"
 )
 
-func main() {
 
+func main() {
 	defer orm.Eloquent.Close()
 	defer orm.Redis.Close()
 

@@ -19,10 +19,12 @@ func init() {
 
 	if err != nil {
 		fmt.Printf("mysql connect error %v\n", err)
+		panic("")
 	}
 
 	if Eloquent.Error != nil {
 		fmt.Printf("\ndatabase error %v", Eloquent.Error)
+		panic("")
 	}
 
 	// 表名禁用复数
